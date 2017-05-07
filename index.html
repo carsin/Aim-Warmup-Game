@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/style.css">
+    <title>Aim Warmup</title>
+</head>
+<body>
+
+    <div id="instruction-view" style="display: none">
+        <div id="instructions">
+            <h2>Click the squares as soon as they appear!</h1>
+            <p id="settings-button">Click me to edit settings!</p>
+            <div id="settings">
+                <p>Defaults are recommended settings</p>
+                <form action="POST">
+                    <label for="numberOfTargets">Number of targets: </label>
+                    <input type="number" name="numberOfTargets" value="80">
+                    <br>
+                    <label for="targetDuration">Target on screen duration (ms): </label>
+                    <input type="number" name="targetDuration" value="300">
+                    <br>
+                    <label for="targetSize">Size of targets (pixels): </label>
+                    <input type="number" name="targetSize" value="20">
+                    <br>
+                    <label for="targetInterval">Interval between targets (ms): </label>
+                    <input type="number" name="targetInterval" value="500">
+                    <br>
+                </form>
+            </div>
+            <button id="play">Play</button>
+        </div>
+        <div id="links">
+            <a href="https://github.com/razey"><img id="github" src="src/assets/img/github.png" alt="Github Link"></a>
+        </div>
+    </div>
+
+    <div id="game-view" style="display: none">
+        <h1>meme</h1>
+    </div>
+
+    <script src="src/js/game.js"></script>
+</body>
+</html>

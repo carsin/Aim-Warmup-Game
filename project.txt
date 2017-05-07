@@ -1,0 +1,5 @@
+Settings:
+    Length of game (number of targets)
+    Duration of target shown on screen
+    Size of target
+    Interval between targets

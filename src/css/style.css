@@ -1,0 +1,86 @@
+/* Global variables */
+
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;
+}
+
+h1, h2 {
+    font-family: "Montserrat", sans-serif;
+}
+
+/* Instruction screen */
+
+#instruction-view {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#instructions {
+    height: 10%;
+}
+
+#instructions h2 {
+    margin: 4px;
+}
+
+#instructions #play {
+    padding: 5px 50px 5px 50px;
+    border: 1px solid #808080;
+    border-radius: 3px;
+    margin: 5px;
+}
+
+#instructions #settings-button {
+    margin: 2px;
+    color: #0a85e9;
+}
+
+#github {
+    width: 40px;
+    height: 40px;
+    bottom: 2px;
+    left: 2px;
+    position: absolute;
+}
+
+/* Settings screen */
+
+#settings-button {
+    cursor: pointer;
+}
+
+#settings {
+    padding: 10px;
+    border: 1px solid #808080;
+    border-radius: 2px;
+}
+
+#settings form {
+    text-align: left;
+}
+
+#settings p {
+    margin: 2px;
+}
+
+#settings form input {
+    margin: 5px 0 0 0;
+}
+
+/* Game view */
+
+#game-view {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-color: gray;
+}
