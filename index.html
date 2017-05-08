@@ -19,16 +19,16 @@
                 <p>Defaults are recommended settings</p>
                 <form action="POST">
                     <label for="numberOfTargets">Number of targets: </label>
-                    <input type="number" name="numberOfTargets" value="80">
+                    <input type="number" name="numberOfTargets" value="50">
                     <br>
                     <label for="targetDuration">Target on screen duration (ms): </label>
-                    <input type="number" name="targetDuration" value="300">
+                    <input type="number" name="targetDuration" value="700">
                     <br>
                     <label for="targetSize">Size of targets (pixels): </label>
-                    <input type="number" name="targetSize" value="20">
+                    <input type="number" name="targetSize" value="70">
                     <br>
                     <label for="targetInterval">Interval between targets (ms): </label>
-                    <input type="number" name="targetInterval" value="500">
+                    <input type="number" name="targetInterval" value="1200">
                     <br>
                 </form>
             </div>
@@ -40,7 +40,7 @@
     </div>
 
     <div id="game-view" style="display: none">
-        <h1>meme</h1>
+        <h2>Accuracy: <span id="score">0</span>/<span id="total-targets">1</span></h2>
     </div>
 
     <script src="src/js/game.js"></script>

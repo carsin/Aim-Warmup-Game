@@ -3,13 +3,14 @@ var view = {
     width: undefined,
 };
 
-var playLoops;
+var playLoops = 0;
+var score = 0;
 
 $(document).ready(function() {
     $("#instruction-view").fadeIn("fast");
     
     $("#settings").hide();
-
+    resizeWindow();
     $("#settings-button").click(function() {
         if ($("#settings-button").html() === "Click me to edit settings!") {
             $("#settings-button").html("Click me to close the settings!");
@@ -27,6 +28,8 @@ $(document).ready(function() {
         var ti = document.getElementsByName("targetInterval")[0].value;
         $("#instruction-view").fadeOut("fast", function() {
             $("#game-view").fadeIn("fast", function() {
+                playLoops = 0;
+                score = 0;
                 playGame(not, td, ts, ti);
             });
         });
@@ -42,11 +45,43 @@ function resizeWindow() {
 }
 
 function playGame(numberOfTargets, targetDuration, targetSize, targetInterval) {
-    $("#game-view").empty();
+    var div = $("<div>");
+    div.css("background-color", "black");
+    div.css("width", targetSize + "px");
+    div.css("height", targetSize + "px");
+
+    var randomY = Math.random() * view.height - targetSize;
+    var randomX = Math.random() * view.width - targetSize;
+    
+    if (randomY - targetSize < 0) randomY = targetSize;
+    if (randomY + targetSize > view.height) randomY = view.height - targetSize;
+    if (randomX - targetSize < 0) randomX = targetSize;
+    if (randomX + targetSize > view.width) randomX = view.width - targetSize; 
+
+    div.css("top", randomY + "px");
+    div.css("left", randomX + "px");
+
+    div.css("position", "absolute");
+
+    $("#game-view").append(div);
+
+    setTimeout(function() {
+        div.remove();
+    }, targetDuration);
+
+    playLoops++;
+    div.click(function() {
+        score++;
+        $("#score").html(score);
+        div.remove();
+    });
+
+    $("#total-targets").html(playLoops);
 
     // Check if game is over
-    playLoops++;
-    if (playLoops <= numberOfTargets) {
-        setTimeout(playGame(numberOfTargets, targetDuration, targetSize, targetInterval), targetInterval);
+    if (playLoops < numberOfTargets) {
+        setTimeout(function() {
+            playGame(numberOfTargets, targetDuration, targetSize, targetInterval)
+        }, targetInterval);
     }
 }
