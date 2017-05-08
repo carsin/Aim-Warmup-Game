@@ -89,3 +89,13 @@ h1, h2 {
 #game-view h2 {
     text-align: center;
 }
+
+/* Game over screen */
+#game-over {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

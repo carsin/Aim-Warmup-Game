@@ -16,20 +16,19 @@
             <h2>Click the squares as soon as they appear!</h1>
             <p id="settings-button">Click me to edit settings!</p>
             <div id="settings">
-                <p>Defaults are recommended settings</p>
                 <form action="POST">
                     <label for="numberOfTargets">Number of targets: </label>
-                    <input type="number" name="numberOfTargets" value="50">
-                    <br>
+                    <input type="number" name="numberOfTargets" value="5">
+                    <br/>
                     <label for="targetDuration">Target on screen duration (ms): </label>
-                    <input type="number" name="targetDuration" value="700">
-                    <br>
+                    <input type="number" name="targetDuration" value="600">
+                    <br/>
                     <label for="targetSize">Size of targets (pixels): </label>
                     <input type="number" name="targetSize" value="70">
-                    <br>
+                    <br/>
                     <label for="targetInterval">Interval between targets (ms): </label>
-                    <input type="number" name="targetInterval" value="1200">
-                    <br>
+                    <input type="number" name="targetInterval" value="1000">
+                    <br/>
                 </form>
             </div>
             <button id="play">Play</button>
@@ -41,6 +40,11 @@
 
     <div id="game-view" style="display: none">
         <h2>Accuracy: <span id="score">0</span>/<span id="total-targets">1</span></h2>
+    </div>
+
+    <div id="game-over" style="display: none">
+        <h2><span id="text-grade"></span> you hit <span id="score-over"></span>/<span id="total-targets-over"></span>! That's <span id="accuracy-percent"></span>% accuracy<span id="grade-punction"></span></h2>
+        <h2>Grade: <span id="grade"></span></h2>
     </div>
 
     <script src="src/js/game.js"></script>
