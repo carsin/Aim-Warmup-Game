@@ -13,6 +13,21 @@ h1, h2 {
     margin: 0;
 }
 
+button {
+    padding: 5px 50px 5px 50px;
+    border: 1px solid #808080;
+    border-radius: 3px;
+    margin: 5px;
+}
+
+#github {
+    width: 40px;
+    height: 40px;
+    bottom: 2px;
+    left: 2px;
+    position: absolute;
+}
+
 /* Instruction screen */
 
 #instruction-view {
@@ -32,24 +47,9 @@ h1, h2 {
     margin: 4px;
 }
 
-#instructions #play {
-    padding: 5px 50px 5px 50px;
-    border: 1px solid #808080;
-    border-radius: 3px;
-    margin: 5px;
-}
-
 #instructions #settings-button {
     margin: 2px;
     color: #0a85e9;
-}
-
-#github {
-    width: 40px;
-    height: 40px;
-    bottom: 2px;
-    left: 2px;
-    position: absolute;
 }
 
 /* Settings screen */
@@ -83,14 +83,23 @@ h1, h2 {
     padding: 0;
     height: 100%;
     width: 100%;
-    background-color: gray;
+    background-color: black;
 }
 
 #game-view h2 {
     text-align: center;
 }
 
+#game-view div {
+    background-color: #cc1a15;
+}
+
+#game-view div:hover {
+    cursor: pointer;
+}
+
 /* Game over screen */
+
 #game-over {
     height: 90%;
     width: 100%;
@@ -98,4 +107,8 @@ h1, h2 {
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+#game-over h2 {
+    padding: 2px;
 }

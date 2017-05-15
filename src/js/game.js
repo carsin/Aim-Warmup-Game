@@ -3,11 +3,19 @@ var view = {
 	width: undefined,
 };
 
+var settings = {
+	not: undefined,
+	td: undefined,
+	ts: undefined,
+	ti: undefined,
+};
+
 var playLoops = 0;
 var score = 0;
 
 $(document).ready(function() {
 	$("#instruction-view").fadeIn("fast");
+	$("#links").fadeIn("fast");
 
 	$("#settings").hide();
 	resizeWindow();
@@ -22,15 +30,41 @@ $(document).ready(function() {
 	});
 
 	$("#play").click(function() {
-		var not = parseInt(document.getElementsByName("numberOfTargets")[0].value);
-		var td = parseInt(document.getElementsByName("targetDuration")[0].value);
-		var ts = parseInt(document.getElementsByName("targetSize")[0].value);
-		var ti = parseInt(document.getElementsByName("targetInterval")[0].value);
+		settings.not = parseInt(document.getElementsByName("numberOfTargets")[0].value);
+		settings.td = parseInt(document.getElementsByName("targetDuration")[0].value);
+		settings.ts = parseInt(document.getElementsByName("targetSize")[0].value);
+		settings.ti = parseInt(document.getElementsByName("targetInterval")[0].value);
+		$("#links").fadeOut("fast");
 		$("#instruction-view").fadeOut("fast", function() {
 			$("#game-view").fadeIn("fast", function() {
 				playLoops = 0;
 				score = 0;
-				playGame(not, td, ts, ti);
+				playGame(settings.not, settings.td, settings.ts, settings.ti);
+			});
+		});
+	});
+
+	$("#home").click(function() {
+		$("#game-over").fadeOut("fast", function() {
+			$("#links").fadeIn("fast");
+			$("#instruction-view").fadeIn("fast", function() {
+				document.getElementsByName("numberOfTargets")[0].value = settings.not;
+				document.getElementsByName("targetDuration")[0].value = settings.td;
+				document.getElementsByName("targetSize")[0].value = settings.ts;
+				document.getElementsByName("targetInterval")[0].value = settings.ti;
+				score = 0;
+				playLoops = 0;
+			});
+		});
+	});
+
+	$("#play-again").click(function() {
+		$("#links").fadeOut("fast");
+		$("#game-over").fadeOut("fast", function() {
+			$("#game-view").fadeIn("fast", function() {
+				score = 0;
+				playLoops = 0;
+				playGame(settings.not, settings.td, settings.ts, settings.ti);
 			});
 		});
 	});
@@ -46,7 +80,6 @@ function resizeWindow() {
 
 function playGame(numberOfTargets, targetDuration, targetSize, targetInterval) {
 	var div = $("<div>");
-	div.css("background-color", "black");
 	div.css("width", targetSize + "px");
 	div.css("height", targetSize + "px");
 
@@ -71,17 +104,16 @@ function playGame(numberOfTargets, targetDuration, targetSize, targetInterval) {
 
 	div.click(function() {
 		score++;
-		$("#score").html(score);
 		div.remove();
 	});
 
 	playLoops++;
-	$("#total-targets").html(playLoops);
 
 	// Check if game is over
 	if (playLoops === numberOfTargets) {
 		setTimeout(function() {
 			$("#game-view").fadeOut("fast", function() {
+				$("#links").fadeIn("fast");
 				$("#game-over").fadeIn("fast", function() {
 					var accuracy = Math.round(score / playLoops * 100);
 
