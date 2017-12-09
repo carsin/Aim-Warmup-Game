@@ -20,12 +20,18 @@ button {
     margin: 5px;
 }
 
-#github {
-    width: 40px;
-    height: 40px;
+#links a {
     bottom: 2px;
     left: 2px;
     position: absolute;
+    color: rgba(0, 0, 0, 0.7);
+    font-family: "Helvetica", sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#links a:hover {
+    color: #000;
 }
 
 /* Instruction screen */
